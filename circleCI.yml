@@ -1,8 +1,8 @@
 version: 2
-notify:
-  webhooks :
-   - url: https://outlook.office.com/webhook/e245a0da-fe2d-407b-8ac1-f610f2d58db2@ddd7c767-5121-4b92-97c3-baec6d1f059e/CircleCI/47a96e66031a465c92bf4ecee96238d3/5be6255d-7586-4a73-8d32-7e39397c16da
 jobs:
+  notify:
+    webhooks :
+      - url: https://outlook.office.com/webhook/e245a0da-fe2d-407b-8ac1-f610f2d58db2@ddd7c767-5121-4b92-97c3-baec6d1f059e/CircleCI/47a96e66031a465c92bf4ecee96238d3/5be6255d-7586-4a73-8d32-7e39397c16da
   build:
     docker:
       - image: ubuntu:14.04
