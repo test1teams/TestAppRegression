@@ -1,0 +1,51 @@
+{
+    "@type": "MessageCard",
+    "@context": "http://schema.org/extensions",
+    "themeColor": "DD1955",
+    "summary": "New feedback was submitted by john@example.com",
+    "sections": [
+        {
+            "activityTitle": "New Feedback",
+            "activitySubtitle": "New feedback was submitted by john@example.com",
+            "activityImage": null,
+            "facts": [
+                {
+                    "name": "Feedback",
+                    "value": "This is a test webhook from TestFairy. It works!"
+                },
+                {
+                    "name": "App Name",
+                    "value": "Sample App"
+                },
+                {
+                    "name": "Version",
+                    "value": "1.0 (1)"
+                },
+                {
+                    "name": "Platform",
+                    "value": "Android"
+                },
+                {
+                    "name": "Device",
+                    "value": "Android Device"
+                },
+                {
+                    "name": "IP Address",
+                    "value": "122.163.222.197"
+                }
+            ]
+        }
+    ],
+    "potentialAction": [
+        {
+            "@type": "OpenUri",
+            "name": "View Session",
+            "targets": [
+                {
+                    "os": "default",
+                    "uri": "https://app.testfairy.com/projects/1/builds/1/sessions/1"
+                }
+            ]
+        }
+    ]
+}
