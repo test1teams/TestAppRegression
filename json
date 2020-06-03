@@ -1,0 +1,20 @@
+use HTTP::Request::Common qw(POST);
+use LWP::UserAgent;
+use JSON;
+my $ua = new LWP::UserAgent();
+my $webhook_url = 'https://outlook.office.com/webhook/a7a57d9b-a4f0-4c90-852e-26cf594af2a6@ddd7c767-5121-4b92-97c3-baec6d1f059e/Subversion/d355187d9737490f8b15b59ebf4a91da/5be6255d-7586-4a73-8d32-7e39397c16da'; # enter your WebHook URL here
+my $revision = $ARGV[1];
+my $reposPath = $ARGV[0];
+my $commitBrowserUrl = "E:\\Repositories";
+my $commitLog = `svnlook log -r $revision $reposPath`;
+my $author = `svnlook author -r $revision $reposPath`;
+my $payload = {
+	'revision'	=> $revision,
+	'reposPath' => $reposPath,
+	'author' => $author,
+	'commitLog' => $commitLog,
+	'commitBrowserUrl' => $commitBrowserUrl
+};
+my $httpRequest = POST( "$webhook_url", Content => encode_json($payload));
+$httpRequest->header( "Content-Type" => 'application/json' );
+my $httpResponse = $ua->request($httpRequest);
